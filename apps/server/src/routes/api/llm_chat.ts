@@ -90,12 +90,12 @@ async function streamChat(req: Request, res: Response) {
 /**
  * Get available models from all configured providers.
  */
-function getModels(_req: Request, _res: Response) {
+async function getModels(_req: Request, _res: Response) {
     if (!hasConfiguredProviders()) {
         return { models: [] };
     }
 
-    return { models: getAllModels() };
+    return { models: await getAllModels() };
 }
 
 export default {
